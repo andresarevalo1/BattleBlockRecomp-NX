@@ -1,0 +1,8 @@
+generated/
+out/
+build/
+*.local.toml
+extracted/
+
+# Local build logs
+*.log

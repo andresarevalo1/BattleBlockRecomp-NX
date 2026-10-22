@@ -1,0 +1,30 @@
+# BattleBlock Theater Switch: settings. Va junto al NRO.
+# Claves a confirmar en hardware.
+
+# --- Renderer y framerate -------------------------------------------------
+nx_renderer = "native"
+# BattleBlock en 360 corre a 60; en Switch empezar capado a 30 e intentar 60.
+gameplay_frame_rate = 30
+menu_frame_rate = 30
+nx_min_frame_vblanks = 2
+nx_pace_before_present = false
+
+# --- Costo GPU -------------------------------------------------------------
+nx_msaa = false
+nx_max_anisotropy = 1
+nx_depth24 = true
+nx_record_thread = true
+nx_gpu_profile = false
+
+# --- Licencia (1 = comprado, quita el modo trial) ---------------------------
+license_mask = 1
+
+# --- Idioma (XLanguage: 1 inglés, 5 español; voces quedan en inglés) --------
+game_language = 5
+user_language = 5
+
+# --- Sistema ----------------------------------------------------------------
+switch_cp_core = 2
+# 0 = deja los relojes al sistema (recomendado con sys-clk instalado).
+switch_gpu_mhz = 0
+log_level = "info"
