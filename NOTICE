@@ -18,6 +18,13 @@ Third-party work
 This repository contains no game content. It requires your own legally
 obtained copy of BattleBlock Theater (Xbox 360 XBLA).
 
+Legal attribution (GPL-3.0)
+--------------------------
+
+This file is the attribution notice required by the GPL-3.0 for the
+third-party works this project is derived from. It is a legal requirement,
+not a list of sponsors.
+
 Portions of this project are derived from, and build upon, the following
 works, each under its own licence:
 
@@ -52,7 +59,9 @@ works, each under its own licence:
 
 Licence texts for the shipped dependencies are collected in LICENSES/.
 The patches under patches/ are ports of upstream changes and keep their
-original licences and authorship.
+original licences and authorship. The reference shaders under
+tools/native-renderer/native_shaders/reference-shaders/ are GPL-3.0 works
+of the upstream projects listed above.
 
 Trademark notice
 ----------------

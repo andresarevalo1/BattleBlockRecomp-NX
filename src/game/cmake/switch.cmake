@@ -1,4 +1,5 @@
-# Horizon support adapted from project8-sw / the-simpsons-game-nx; code generation stays on the host.
+# Soporte para Switch (Horizon). La generacion de codigo se queda en el host.
+# SPDX-License-Identifier: GPL-3.0-or-later - ver NOTICE en la raiz del repo.
 # REXSDK_DIR is the ReXGlue SDK with patches/rexglue-sdk applied (docs/BUILD_PLAN.md).
 set(REXSDK_DIR "" CACHE PATH "Switch SDK source (patched)")
 if(NOT EXISTS "${REXSDK_DIR}/cmake/rexglue_switch.cmake")
@@ -18,8 +19,8 @@ target_compile_options(battleblock_recomp PRIVATE -O3 -ffp-contract=off
     -fno-tree-slp-vectorize -fno-tree-vectorize)
 
 # Native replacement shaders (full-screen post effects) compilados y embebidos
-# en el NRO. En BattleBlock 2D probablemente pocos; de momento reutiliza el
-# pipeline de the-simpsons-game-nx. Si no hay .frag, se genera un cpp vacio.
+# en el NRO. En BattleBlock 2D probablemente pocos; de momento se reutiliza el
+# pipeline de shaders ya probado. Si no hay .frag, se genera un cpp vacio.
 set(BATTLEBLOCK_NATIVE_SHADER_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/../../tools/native-renderer/native_shaders")
 file(GLOB BATTLEBLOCK_NATIVE_SHADER_FILES "${BATTLEBLOCK_NATIVE_SHADER_SOURCES}/*.frag")
 set(BATTLEBLOCK_NATIVE_SHADER_SPV_DIR "${CMAKE_CURRENT_BINARY_DIR}/native_shaders")
@@ -67,8 +68,6 @@ target_include_directories(battleblock_host PRIVATE "${BATTLEBLOCK_GENERATED_DIR
     "${REXSDK_DIR}/thirdparty/xxHash")
 target_link_libraries(battleblock_host PRIVATE rex::runtime)
 target_compile_definitions(battleblock_host PRIVATE REXGLUE_BUILD_CONFIG="$<CONFIG>" BATTLEBLOCK_NATIVE_RENDERER=1)
-# Compat: frame_pacing.cpp de referencia usa SIMPSONS_GAMEPLAY_FRAME_RATE_DEFAULT.
-target_compile_definitions(battleblock_host PRIVATE SIMPSONS_GAMEPLAY_FRAME_RATE_DEFAULT=30)
 
 add_custom_target(battleblock_switch_compile DEPENDS battleblock_recomp battleblock_host
     rexruntime rexglue_switch_startup)

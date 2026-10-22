@@ -1,5 +1,5 @@
 # BattleBlock Theater Switch: settings. Va junto al NRO.
-# Basado en simpsons.toml; claves a confirmar en hardware.
+# Claves a confirmar en hardware.
 
 # --- Renderer y framerate -------------------------------------------------
 nx_renderer = "native"

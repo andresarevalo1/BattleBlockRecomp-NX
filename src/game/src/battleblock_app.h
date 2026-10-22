@@ -1,5 +1,9 @@
 // battleblock - ReXGlue Recompiled Project (Switch)
-// Adaptado de simpsons_app.h de the-simpsons-game-nx (R-drg, GPLv3).
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (c) 2026 DashX - Andres Arevalo
+// Ver NOTICE en la raiz del repositorio para la atribucion del codigo de
+// terceros del que deriva este proyecto.
 
 #pragma once
 

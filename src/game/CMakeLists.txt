@@ -1,6 +1,9 @@
 # battleblock - ReXGlue Recompiled Project (Switch)
 #
-# Adaptado de simpsons/CMakeLists.txt (the-simpsons-game-nx, GPLv3).
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) 2026 DashX - Andres Arevalo
+# Ver NOTICE en la raiz del repositorio para la atribucion del codigo de
+# terceros del que deriva este proyecto.
 # SDK boilerplate lives in generated/rexglue.cmake.
 
 cmake_minimum_required(VERSION 3.25)
@@ -45,7 +48,7 @@ if(BATTLEBLOCK_NATIVE_RENDERER)
     target_sources(battleblock PRIVATE
         src/native/native_system.cpp src/native/native_renderer.cpp
         src/native/native_textures.cpp src/native/native_geometry_shaders.cpp)
-    target_compile_definitions(battleblock PRIVATE BATTLEBLOCK_NATIVE_RENDERER=1 SIMPSONS_NATIVE_RENDERER=0)
+    target_compile_definitions(battleblock PRIVATE BATTLEBLOCK_NATIVE_RENDERER=1)
     target_include_directories(battleblock PRIVATE
         "${REXSDK_DIR}/src/graphics"
         "${REXSDK_DIR}/thirdparty/glslang"

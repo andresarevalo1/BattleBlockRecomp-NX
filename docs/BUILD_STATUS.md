@@ -33,7 +33,8 @@
 - `REXSDK_DIR` para el NRO = `E:\BattleBlockRecomp\base\tools\rexglue-sdk` tal cual.
 
 ## Esqueleto `battleblock-nx` poblado hoy
-- `src/game/CMakeLists.txt` (adaptado simpsons→battleblock) + `CMakeLists.txt.ref`
+- `src/game/CMakeLists.txt` (adaptado del proyecto de referencia) +
+  `CMakeLists.txt.ref`
 - `src/game/cmake/switch.cmake` (adaptado) + `switch.cmake.ref` +
   `cmake/embed_native_shaders.py`
 - `src/game/CMakePresets.json`
@@ -42,8 +43,9 @@
   `guest_pacing_stats.h`, `native/*` (9 ficheros), `dev/*` (2).
   Namespaces/macros renombrados a `battleblock::` / `BATTLEBLOCK_`.
 - `src/game/compat_switch/`, `src/game/compat_win/`
-- `src/game/switch/icon.jpg` (placeholder copiado de simpsons; **reemplazar**
-  por arte propio antes de publicar) + `icon.placeholder.jpg`
+- `src/game/switch/icon.jpg` (placeholder copiado de un proyecto de
+  referencia; **reemplazar** por arte propio antes de publicar) +
+  `icon.placeholder.jpg`
 - `src/game/generated/` (134 ficheros, copiados de
   `bbt-recomp/battleblock/generated`; ignorados por git). Regenerar con
   `rexglue codegen` si cambia el manifest.
@@ -85,8 +87,8 @@ Sale `build/switch/battleblock.nro`. SD:
   (ahora en `src/game/functions_patch.toml`, manifest en esquema 0.8).
 - Fallos menores corregidos: `src/native/shaders/*.h` copiados de referencia;
   tabla vacía de replacement shaders generada con `embed_native_shaders.py`
-  adaptado a `battleblock::native` (los `.frag` de simpsons, de otro juego,
-  apartados a `tools/native-renderer/native_shaders/simpsons-ref/`).
+  adaptado a `battleblock::native` (los `.frag` de referencia, de otro juego,
+  apartados a `tools/native-renderer/native_shaders/reference-shaders/`).
 - `build/switch/battleblock.nro` = **41 MB** (+ `battleblock` 59 MB sin strip
   para `addr2line`, `.nacp`, `.stripped.elf`). Warnings solo de SDK
   (`-Wunused-parameter`, `-Wattributes` en PCH).
@@ -104,7 +106,7 @@ Sale `build/switch/battleblock.nro`. SD:
 - Copiar a la SD con herramienta que verifique (DBI por MTP).
 
 ## Test 1 en hardware (2026-10-05): crash por memoria + icono placeholder
-- Síntomas: icono de Simpsons (placeholder, ya sustituido por TitleIcon del
+- Síntomas: icono placeholder (ya sustituido por TitleIcon del
   XBLA a 256x256 JPEG) y cierre con "se ha cerrado el programa", negro desde
   el inicio, sin código de error.
 - Logs del usuario (`Downloads/logs`, 5 arranques): el arranque 001 llega a
@@ -125,8 +127,8 @@ Sale `build/switch/battleblock.nro`. SD:
   oscuras + crash antes del primer frame del juego.
 1. Probar en Switch con CFW + Homebrew en modo takeover + sys-clk.
    Todo es "no verificado en hardware" hasta jugar.
-2. `src/game/switch/icon.jpg` es placeholder (copiado de simpsons):
-   reemplazar por arte propio antes de publicar.
+2. `src/game/switch/icon.jpg` es placeholder (copiado de un proyecto de
+   referencia): reemplazar por arte propio antes de publicar.
 3. Medir GPU (`nx_gpu_profile`), escribir replacement shaders si algún
    full-screen pesa, ajustar frame pacing 30→60 si el hardware lo da.
 4. Hooks `BattleblockApp`: vídeos `.wmv`, audio `.xma2`,
@@ -143,7 +145,8 @@ Sale `build/switch/battleblock.nro`. SD:
 - El fix XMA funcionó: 320 contextos OK, sin `Couldn't allocate`, sin `bad_alloc`.
 - Nuevo crash: `fallo de acceso a memoria` en `LogImage` (startup_check.cpp),
   simbolizado con addr2line (pc imagen+0x451598): leía `base+0x82000000..0x82EC0000`
-  + list head `0x82CD272C`, direcciones de SIMPSONS; la imagen de BattleBlock acaba
+  + list head `0x82CD272C`, direcciones del XEX de referencia; la imagen de
+  BattleBlock acaba
   en `0x825B0000` y en Switch leer guest no confirmado desde el host falla
   (guest 0x82cb0000 = host 0x0f2fe75000, región sin mapear).
 - Fix: rangos a imagen real (`kImageEnd=0x825B0000`, datos `0x824DC578..fin`),

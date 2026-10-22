@@ -46,7 +46,7 @@ check_glob '*/audiostreams/*' 'the disc audio folder is in the tree'
 check_glob '*.lua'      'game scripts from the disc are in the tree'
 
 # The recompiler's output is a translation of the publisher's machine code.
-check_glob '*simpsons_recomp.*.cpp' 'generated translation units are in the tree'
+check_glob '*_recomp.*.cpp' 'generated translation units are in the tree'
 check_glob '*/generated/*'          'recompiler output is in the tree'
 
 # Backstop: every legitimate file here is source, config or a font.

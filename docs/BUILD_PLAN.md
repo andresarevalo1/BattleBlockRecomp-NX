@@ -1,4 +1,4 @@
-# Plan de build Switch (adaptado de the-simpsons-game-nx/docs/building.md)
+# Plan de build Switch
 
 Los pasos, en orden: SDK + parches Horizon, driver Vulkan (NVK/Mesa),
 traducción del juego, NRO, SD. Todo lo pesado corre en Linux/Docker;
@@ -47,7 +47,9 @@ Es el paso más pesado. Reutilizable tal cual entre juegos.
 
 ```sh
 cp src/game/battleblock_manifest.reference.toml src/game/battleblock_manifest.local.toml
-# REPLACE_ME -> carpeta del XBLA extraído (E:/BattleBlockRecomp/bbt-recomp/extracted)
+# Edita el manifest local y pon la ruta de tu XBLA extraído:
+#   game_root = "C:/ruta/al/XBLA/extraido"
+#   file_path = "C:/ruta/al/XBLA/extraido/default.xex"
 rexglue codegen
 ```
 
@@ -84,8 +86,8 @@ dañado en la SD = crash al arrancar.
 
 ## Trabajo específico del juego (lo que hace distinto a cada port)
 
-1. Renderer nativo: reutilizar `src/native/` de project8-sw; escribir
-   replacement shaders solo para los efectos full-screen más caros
+1. Renderer nativo: `src/native/` ya está escrito; escribir replacement
+   shaders solo para los efectos full-screen más caros
    (BattleBlock 2D: probablemente pocos).
 2. Hooks/ReXApp: rutas `game:\GameData\...`, videos `.wmv` (FFmpeg),
    audio `.xma2`, `XamShowMarketplaceUI` (stub no-op ya visto en PC).
