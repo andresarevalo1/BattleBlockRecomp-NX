@@ -1,0 +1,13 @@
+# Hints de funciones para codegen con ReXGlue 0.8 (el SDK del build Switch).
+# Validados con 0.8.0.1-dev.g285bea32 (2026-10-05): codegen pasa limpio.
+# Copiar a battleblock_manifest.local.toml con game_root apuntando al XBLA extraído.
+
+[project]
+name = "battleblock"
+sdk_version = "0.8.0"
+game_root = "REPLACE_ME"
+
+[entrypoint]
+file_path = "REPLACE_ME/default.xex"
+out_directory_path = "generated/default"
+includes = ["functions_patch.toml"]

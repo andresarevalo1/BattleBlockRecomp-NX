@@ -1,0 +1,66 @@
+BattleBlock Theater — Nintendo Switch port
+=========================================
+
+Copyright (c) 2026 DashX — Andres Arevalo <https://github.com/andresarevalo1>
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version. See the LICENSE file for the full text.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+Third-party work
+----------------
+
+This repository contains no game content. It requires your own legally
+obtained copy of BattleBlock Theater (Xbox 360 XBLA).
+
+Portions of this project are derived from, and build upon, the following
+works, each under its own licence:
+
+  * The Simpsons Game Recompiled — YesterMester
+    https://github.com/YesterMester/TheSimpsonsGameRecomp  (GPL-3.0)
+    ReXGlue runtime, launcher and project layout used as the base.
+
+  * the-simpsons-game-nx — R-drg
+    https://github.com/R-drg/the-simpsons-game-nx  (GPL-3.0)
+    Nintendo Switch port design, entry point, CMake layout and SD release
+    structure followed by this project.
+
+  * project8-sw — R-drg
+    https://github.com/R-drg/project8-sw  (GPL-3.0)
+    Switch port patterns for frame pacing, input and release packaging.
+
+  * 360tools — sp00nz
+    https://github.com/sp00nznet/360tools  (GPL-3.0)
+    Recompilation toolkit used for binary analysis and triage.
+
+  * ReXGlue SDK — rexglue
+    https://github.com/rexglue/rexglue-sdk  (MIT)
+    Static recompiler toolchain (rexglue codegen) and runtime.
+
+  * Mesa (mesa-switch) — danfromtico / The Behemoth community
+    https://github.com/danfromtico/mesa-switch  (MIT)
+    Vulkan driver for the Switch, patched via patches/mesa-switch/.
+
+  * devkitPro — devkitPro
+    https://devkitpro.org/  (various)
+    Switch toolchain (devkitA64, libnx) and portlibs.
+
+Licence texts for the shipped dependencies are collected in LICENSES/.
+The patches under patches/ are ports of upstream changes and keep their
+original licences and authorship.
+
+Trademark notice
+----------------
+
+BattleBlock Theater is a trademark of The Behemoth. "The Behemoth", "BattleBlock
+Theater" and related logos are the property of The Behemoth. This project is
+an unofficial, non-commercial fan project and is not affiliated with,
+endorsed by, or sponsored by The Behemoth or Microsoft.
+
+Nintendo Switch is a trademark of Nintendo. This project is not affiliated with
+or endorsed by Nintendo.

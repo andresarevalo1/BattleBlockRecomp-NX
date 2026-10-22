@@ -1,0 +1,11 @@
+# functions_patch.toml — parches de funciones/ABI específicos del juego (formato 0.8).
+# Hints validados con codegen 0.8.0.1-dev.g285bea32 (2026-10-05): pasa limpio.
+[functions]
+"0x821BB990" = {}
+"0x8244D7A8" = {}
+"0x82448158" = {}
+"0x8244D798" = {}
+"0x823158F8" = {}
+"0x823106E0" = {}
+"0x82317428" = {}
+"0x823106C8" = {}
